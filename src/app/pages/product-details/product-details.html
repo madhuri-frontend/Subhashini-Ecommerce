@@ -1,0 +1,27 @@
+@if (product) {
+  <div class="product-details">
+    <h2>{{ product.name }}</h2>
+
+    <p>Product ID: {{ product.id }}</p>
+
+    <h3>Price: ₹{{ product.price }}</h3>
+
+    <p>Available Stock: {{ product.stock }}</p>
+
+    <p>{{ product.description }}</p>
+
+    @if (getCartQuantity() === 0) {
+      <button (click)="addToCart()">Add to Cart</button>
+    } @else {
+      <div class="quantity-controls">
+        <button (click)="cartService.decreaseQuantity(product)">−</button>
+
+        <span>{{ getCartQuantity() }}</span>
+
+        <button (click)="cartService.increaseQuantity(product)">+</button>
+      </div>
+    }
+  </div>
+} @else {
+  <h2>Product not found!</h2>
+}

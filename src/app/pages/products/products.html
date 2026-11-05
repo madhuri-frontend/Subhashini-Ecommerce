@@ -1,0 +1,35 @@
+<div class="products-container">
+  <h2>Our Products</h2>
+
+  <div class="products-grid">
+    @for (product of products; track product.id) {
+      @if (product.price > 0 && product.stock > 0) {
+        <div class="product-card">
+          <div class="product-image">
+            <span>{{ product.name }}</span>
+          </div>
+
+          <div class="product-details">
+            <h3>{{ product.name }}</h3>
+
+            <p class="price">₹{{ product.price }}</p>
+
+            <p class="stock">In Stock: {{ product.stock }}</p>
+
+            @if (getCartQuantity(product) === 0) {
+              <button (click)="addToCart(product)">Add to Cart</button>
+            } @else {
+              <div class="quantity-controls">
+                <button (click)="cartService.decreaseQuantity(product)">−</button>
+
+                <span>{{ getCartQuantity(product) }}</span>
+
+                <button (click)="cartService.increaseQuantity(product)">+</button>
+              </div>
+            }
+          </div>
+        </div>
+      }
+    }
+  </div>
+</div>

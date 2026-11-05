@@ -1,0 +1,33 @@
+<h2>My Shopping Cart</h2>
+
+@if (cartService.cartItems.length > 0) {
+  @for (product of cartService.cartItems; track product.id) {
+    <div class="cart-item">
+      <h3>{{ product.name }}</h3>
+
+      <p>Price: ₹{{ product.price }}</p>
+
+      <div>
+        <button (click)="cartService.decreaseQuantity(product)">−</button>
+
+        <span>{{ product.quantity }}</span>
+
+        <button (click)="cartService.increaseQuantity(product)">+</button>
+      </div>
+
+      <p>Subtotal: ₹{{ product.price * product.quantity }}</p>
+
+      <button (click)="cartService.removeProduct(product)">Remove</button>
+    </div>
+
+    <hr />
+  }
+
+  <h3>Total Amount: ₹{{ getTotal() }}</h3>
+  @if (cartService.cartItems.length > 0) {
+    <button routerLink="/checkout">Proceed to Checkout</button>
+  }
+} @else {
+  <h3>Your cart is empty!</h3>
+  <p>Add some products to continue shopping.</p>
+}
