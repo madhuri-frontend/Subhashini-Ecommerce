@@ -4,6 +4,9 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class Cart {
+  clearCart() {
+    throw new Error('Method not implemented.');
+  }
   cartItems: any[] = [];
 
   addToCart(product: any) {

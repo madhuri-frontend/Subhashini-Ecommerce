@@ -1,0 +1,156 @@
+.checkout-container {
+  max-width: 1100px;
+  margin: 30px auto;
+  padding: 25px;
+  background: #f8faf9;
+  min-height: 100vh;
+
+  h2 {
+    color: #176b45;
+    font-size: 30px;
+    margin-bottom: 25px;
+  }
+
+  > p {
+    color: #607d8b;
+    margin: 25px 0 18px;
+  }
+}
+
+/* Order Summary */
+.order-summary {
+  background: #ffffff;
+  padding: 22px;
+  border: 1px solid #e5eae7;
+  border-radius: 12px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
+
+  h3 {
+    color: #176b45;
+    margin-top: 0;
+    margin-bottom: 18px;
+  }
+
+  hr {
+    border: none;
+    border-top: 1px solid #eeeeee;
+    margin: 18px 0;
+  }
+}
+
+.order-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 12px 0;
+  color: #455a64;
+  border-bottom: 1px solid #f0f0f0;
+
+  span:last-child {
+    font-weight: 600;
+    color: #263238;
+    white-space: nowrap;
+  }
+}
+
+.order-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 17px;
+  background: #e8f5ed;
+  color: #176b45;
+  border-radius: 8px;
+  font-size: 18px;
+}
+
+/* Checkout Form */
+form {
+  background: #ffffff;
+  padding: 25px;
+  border: 1px solid #e5eae7;
+  border-radius: 12px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
+
+  label {
+    color: #263238;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  input,
+  textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 13px;
+    border: 1px solid #dce3e8;
+    border-radius: 7px;
+    font-size: 15px;
+    font-family: inherit;
+    outline: none;
+    transition:
+      border-color 0.2s ease,
+      box-shadow 0.2s ease;
+
+    &:focus {
+      border-color: #176b45;
+      box-shadow: 0 0 0 3px rgba(23, 107, 69, 0.1);
+    }
+  }
+
+  textarea {
+    min-height: 110px;
+    resize: vertical;
+  }
+
+  small {
+    color: #d32f2f;
+    font-size: 13px;
+  }
+}
+
+/* Place Order */
+form > button {
+  width: 100%;
+  padding: 14px;
+  background: #176b45;
+  color: #ffffff;
+  border: none;
+  border-radius: 7px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+
+  &:hover {
+    background: #105436;
+  }
+}
+
+/* Mobile Responsive */
+@media (max-width: 600px) {
+  .checkout-container {
+    padding: 15px;
+    margin: 15px auto;
+
+    h2 {
+      font-size: 24px;
+    }
+  }
+
+  .order-summary,
+  form {
+    padding: 17px;
+  }
+
+  .order-total {
+    font-size: 16px;
+  }
+}

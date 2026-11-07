@@ -1,0 +1,77 @@
+<div class="admin-container">
+  <h2>Admin Orders Dashboard</h2>
+
+  <h3>Total Orders: {{ orders.length }}</h3>
+  <div class="search-section">
+    <input
+      type="text"
+      placeholder="Search by customer name, mobile or order ID"
+      [(ngModel)]="searchText"
+    />
+  </div>
+  <div class="filter-section">
+    <label>Filter by Status:</label>
+
+    <select [(ngModel)]="selectedStatus">
+      <option value="All">All Orders</option>
+      <option value="Placed">Placed</option>
+      <option value="Processing">Processing</option>
+      <option value="Shipped">Shipped</option>
+      <option value="Delivered">Delivered</option>
+      <option value="Cancelled">Cancelled</option>
+    </select>
+  </div>
+
+  @if (orders.length > 0) {
+    @for (order of searchedOrders; track order.orderId) {
+      <div class="order-card">
+        <h3>Order ID: {{ order.orderId }}</h3>
+
+        <p>
+          <strong>Customer:</strong>
+          {{ order.customer.fullName }}
+        </p>
+
+        <p>
+          <strong>Mobile:</strong>
+          {{ order.customer.mobile }}
+        </p>
+
+        <p>
+          <strong>Email:</strong>
+          {{ order.customer.email }}
+        </p>
+
+        <p>
+          <strong>Address:</strong>
+          {{ order.customer.address }}
+        </p>
+
+        <h4>Products</h4>
+
+        @for (item of order.products; track item.id) {
+          <p>{{ item.name }} × {{ item.quantity }} — ₹{{ item.price * item.quantity }}</p>
+        }
+
+        <h3>Total: ₹{{ order.totalAmount }}</h3>
+
+        <div class="status-section">
+          <strong>Status:</strong>
+
+          <select
+            [value]="order.status"
+            (change)="updateOrderStatus(order, $any($event.target).value)"
+          >
+            <option value="Placed">Placed</option>
+            <option value="Processing">Processing</option>
+            <option value="Shipped">Shipped</option>
+            <option value="Delivered">Delivered</option>
+            <option value="Cancelled">Cancelled</option>
+          </select>
+        </div>
+      </div>
+    }
+  } @else {
+    <p>No orders available.</p>
+  }
+</div>

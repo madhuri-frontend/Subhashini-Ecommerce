@@ -1,0 +1,96 @@
+.admin-container {
+  padding: 30px;
+  max-width: 1100px;
+  margin: 0 auto;
+
+  h2 {
+    color: #176b45;
+    margin-bottom: 25px;
+  }
+
+  > h3 {
+    background: #e8f5ee;
+    color: #176b45;
+    padding: 15px 20px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+  }
+}
+
+.order-card {
+  background: #fff;
+  border: 1px solid #e2e8e5;
+  border-radius: 12px;
+  padding: 25px;
+  margin-bottom: 25px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
+
+  h3 {
+    color: #176b45;
+    margin-bottom: 18px;
+  }
+
+  h4 {
+    margin-top: 22px;
+    color: #333;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+  }
+
+  p {
+    color: #555;
+    line-height: 1.6;
+    margin: 10px 0;
+  }
+
+  > h3:last-child {
+    margin-top: 20px;
+  }
+}
+.status-section {
+  margin-top: 18px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  select {
+    padding: 9px 14px;
+    border: 1px solid #176b45;
+    border-radius: 6px;
+    background: #fff;
+    color: #176b45;
+    font-size: 15px;
+    cursor: pointer;
+  }
+}
+.filter-section {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 25px;
+
+  select {
+    padding: 10px 14px;
+    border: 1px solid #176b45;
+    border-radius: 6px;
+    background: white;
+  }
+}
+.search-section {
+  margin-bottom: 25px;
+
+  input {
+    width: 100%;
+    max-width: 450px;
+    padding: 12px 15px;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    font-size: 15px;
+    box-sizing: border-box;
+
+    &:focus {
+      outline: none;
+      border-color: #176b45;
+    }
+  }
+}
